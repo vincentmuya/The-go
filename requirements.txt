@@ -4,6 +4,7 @@ Django==1.11
 django-bootstrap3==9.1.0
 django-registration==2.4.1
 django-tinymce==2.7.0
+googlemaps==2.5.1
 gunicorn==19.7.1
 Pillow==5.0.0
 psycopg2==2.7.4

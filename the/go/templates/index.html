@@ -1,5 +1,11 @@
 {%extends 'base.html'%} {% load bootstrap3 %} {% block content %} {{ block.super}}
-<div class="container">
-  Working
-</div>
+
+  <div class="container">
+    <form action="{% url 'index' %}" class="form-inline" role="search">
+        <input class="form-control mr-sm-2 mb-2" type="search" placeholder="enter location" aria-label="Search" name="address">
+      </form>
+        <p>{{latitude}} {{longitude}}</p>
+
+  </div>
+  <div id="map"></div>
 {%endblock%}

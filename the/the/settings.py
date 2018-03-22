@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bootstrap3',
+    'googlemaps',
     'go',
     'tinymce',
     'django.contrib.admin',

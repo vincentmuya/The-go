@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="">
 <style media="screen">
 #map {
-  height: 100%;
+  height: 90%;
 }
 body,html {
   height: 100%;
@@ -49,6 +49,8 @@ var map;
           },
           zoom: 17
         });
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map);
         // Add Marker Function
         function addMarker(props) {
           var marker = new google.maps.Marker({
@@ -124,9 +126,9 @@ var map;
   </head>
   <body>
     {%block content %}
-
+    {%include 'navbar.html'%}
     {%endblock%}
-
+  
 
   </body>
 </html>

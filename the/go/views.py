@@ -8,6 +8,7 @@ import googlemaps
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
+import requests
 
 gmaps = googlemaps.Client(key='AIzaSyC14hiJhxMKNF4T4JCkDWyITjz8CoU2aco')
 geo_result = gmaps.geocode('nairobi')

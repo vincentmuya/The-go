@@ -1,0 +1,20 @@
+<div id=weather_widget class="container">
+<script type="text/javascript">
+var api_key = 'a094e606c374990d843e2746ea3f8ecb';
+response = results.loadjson('http://api.openweathermap.org/data/2.5/weather?q=Nairobi&mode=html&appid=' + api_key);
+response.append(results.name)
+response.append(results.main.temp)
+
+</script>
+</div>
+
+<div id=weather_widget class="container">
+  {{main}}
+  <script type="text/javascript">
+    var api_key = 'a094e606c374990d843e2746ea3f8ecb';
+    results.loadjson('http://api.openweathermap.org/data/2.5/weather?q=Nairobi&mode=html&appid=' + api_key);
+    console.log(response);
+    response.append(results.name)
+    response.append(results.main.temp)
+  </script>
+</div>

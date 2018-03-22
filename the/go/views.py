@@ -12,15 +12,15 @@ import requests
 from .forms import UserForm,ProfileForm
 
 gmaps = googlemaps.Client(key='AIzaSyC14hiJhxMKNF4T4JCkDWyITjz8CoU2aco')
-geo_result = gmaps.geocode('nairobi')
+geo_result = gmaps.geocode('address')
 print(geo_result)
 # Create your views here.
 @login_required(login_url='/accounts/login')
 def index(request):
     test = "Code running"
     if 'address' in request.GET and request.GET['address']:
-        address = request.GET.get("address")
-        geo_result = gmaps.geocode('adams')
+        address = request.GET.get('address')
+        geo_result = gmaps.geocode('address')
         print(geo_result)
         latitude = geo_result[0]['geometry']['location'].get('lat')
         longitude = geo_result[0]['geometry']['location'].get('lng')
@@ -31,7 +31,7 @@ def index(request):
         location.time = dt.datetime.now()
         location.save()
 
-        return render(request, "index.html", {"latitude":latitude,"longitude":longitude})
+        return render(request, "index.html", {"latitude":latitude,"longitude":longitude, "address":address})
     else:
         return render(request, 'index.html', {"test":test})
 

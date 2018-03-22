@@ -22,8 +22,6 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     profile_image = models.ImageField(upload_to="posts/",blank = True, null = True)
 
-    def __str__(self):
-        return self.user
 
     def save_profile(self):
         self.save()

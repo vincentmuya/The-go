@@ -1,0 +1,57 @@
+{%extends "registration/base.html"%} {% load bootstrap3 %} {% block content %}
+<div class="container">
+  <div class="row">
+
+    <div>
+      <div class="container" style="margin-bottom:5%">
+        <!-- Empty div -->
+        <div></div>
+        {% if form.errors %}
+        <p> Some Information Might be Incorrect </p>
+        {% endif %}
+            <div class="row">
+               <div class="col-md-7">
+          <img src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2017/01/Instagram-796x398.jpg" alt="responsive" height="500" width="900">
+            </div>
+              <div class="col-md-5">
+                <div class="panel panel-default" height="20">
+          <div class="card">
+          <div class="card-header">
+            <h1 class="text-center"><strong><em>Instagram</em><strong></h1>
+            <h3 class="text-center">Sign up to see photos and videos from your friends.</h3>
+           </div>
+          <div class="card-block">
+            <!-- <form action="/accounts/register/" method="post">
+              {% csrf_token %} {% bootstrap_form form %}
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+              </div>
+              <p>Have an account?</p><a href="/accounts/login/">Login</a>
+
+              <input type="hidden" name="next" value="{{next}}">
+            </form> -->
+            <form action="/accounts/register/" method="post">
+      {% csrf_token %} {% bootstrap_form form %}
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+      </div>
+
+      <input type="hidden" name="next" value="{{next}}">
+
+    </form>
+          </div>
+
+        </div>
+        </div>
+        </div>
+
+
+      <!-- empty div -->
+      <div></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

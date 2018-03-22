@@ -124,11 +124,11 @@ var map;
 {% comment %}
 <script src="{% static 'js/main.js' %}" type="text/javascript" charset="utf-8"></script> {% endcomment %} {% endblock %}
   </head>
+  {%include 'navbar.html'%}
   <body>
     {%block content %}
-    {%include 'navbar.html'%}
     {%endblock%}
-  
+
 
   </body>
 </html>

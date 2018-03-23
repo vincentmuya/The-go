@@ -1,8 +1,37 @@
 {%extends 'base.html'%} {% load bootstrap3 %} {% block content %} {{ block.super}}
-<div class="container">
+<style media="screen">
+header {
+background: url('https://s-media-cache-ak0.pinimg.com/originals/ba/5d/ef/ba5defde08ddb7170affd864e24af931.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+width: 97%;
+height: 285px;
+background-color: white;
+color: #fff;
+text-align: center;
+text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+}
+img{
+  border: 0;
+margin-right: 70%;
+}
 
-</div>
+</style>
+
+
+  <header style="">
+    <img src="/static/weather.png" alt="" height="280px" width="400px">
+  </header>
+
+<br>
+<ul id ='index_tweets'>
+  {%for tweet in tweets.tweets%}
+  <li class="tweettext">{{tweet.status}}</li>
+  <li class="tweettext">{{tweet.date}}</li>
+  {%endfor%}
+</ul>
 <div id="map"></div>
+<br>
 {%include 'footer.html'%}
 
 {%endblock%}

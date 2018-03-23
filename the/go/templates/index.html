@@ -20,10 +20,8 @@ margin-right: 70%;
 
 
   <header style="">
-    <img src="/static/weather.png" alt="" height="280px" width="400px">
+    <a href="http://api.openweathermap.org/data/2.5/weather?q=Nairobi&mode=html&appid=a094e606c374990d843e2746ea3f8ecb"><img src="/static/weather.png" alt="" height="280px" width="400px" ></a>
   </header>
-
-<br>
 <ul id ='index_tweets'>
   {%for tweet in tweets.tweets%}
   <li class="tweettext">{{tweet.status}}</li>

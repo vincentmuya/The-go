@@ -10,12 +10,6 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
 import requests
 from .forms import UserForm,ProfileForm
-import twitter
-
-api = twitter.Api(consumer_key='7HJYEfgpTJHw6aFnsHhOyt2Qs',
-                  consumer_secret='sCTTtebaIUgZGXZWMW75juxcPYNdxL40slsUEVq6QZkfSLg21d',
-                  access_token_key='1233519607-Sp3B4Qcjwwa6p51uxWRZ0NtgFtiziGf9gBuuFfI',
-                  access_token_secret='rNY0h6pkEVd3kVLd7yZmBYtAhADRqeZ2z4Xjhz7d3t6wY')
 
 gmaps = googlemaps.Client(key='AIzaSyC14hiJhxMKNF4T4JCkDWyITjz8CoU2aco')
 geo_result = gmaps.geocode('address')
@@ -35,26 +29,12 @@ def index(request):
         location.longitude = longitude
         location.time = dt.datetime.now()
         location.save()
-        tweets =[]
 
-        return render(request, "index.html", {"latitude":latitude,"longitude":longitude, "address":address, "tweets":getTweets()})
+        return render(request, "index.html", {"latitude":latitude,"longitude":longitude, "address":address})
     else:
         return render(request, 'index.html', {"test":test})
 
 '''internal function not called from the url '''
-def getTweets():
-    tweets =[]
-    try:
-        import twitter
-        api = twitter.Api()
-        latest = api.GetUserTimeLine('Ma3Route')
-        for tweet in latest:
-            status = tweet.text
-            tweet_date = tweet.relative_created_at
-            tweet.append({'status':status,'date': tweet_date})
-    except:
-        tweets.append({'status':'Follow @Ma3Route','date':'about 10 mins ago'})
-    return{'tweets':tweets}
 
 @login_required
 @transaction.atomic

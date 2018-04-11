@@ -21,7 +21,6 @@ gmaps = googlemaps.Client(key='AIzaSyC14hiJhxMKNF4T4JCkDWyITjz8CoU2aco')
 geo_result = gmaps.geocode('address')
 print(geo_result)
 # Create your views here.
-@login_required(login_url='/accounts/login')
 def index(request):
     test = "Code running"
     if 'address' in request.GET and request.GET['address']:

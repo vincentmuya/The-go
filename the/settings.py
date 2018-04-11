@@ -34,7 +34,6 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'bootstrap3',
-    # 'twitter_stream',
     'googlemaps',
     'go',
     'tinymce',

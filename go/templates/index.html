@@ -1,35 +1,42 @@
 {%extends 'base.html'%} {% load bootstrap3 %} {% block content %} {{ block.super}}
 <style media="screen">
-header {
-background: url('http://mapinstitute.org/data/wallpapers/68/im57669880.jpg');
-background-repeat: no-repeat;
-background-size: cover;
-width: 97.5%;
-height: 200px;
-background-color: white;
-color: #fff;
-/*text-align: center;*/
-text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
-}
-img{
-  border: 0;
-margin-right: 70%;
-}
+  header {
+    background: url('http://mapinstitute.org/data/wallpapers/68/im57669880.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 97.5%;
+    height: 200px;
+    background-color: white;
+    color: #fff;
+    /*text-align: center;*/
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+  }
+
+  img {
+    border: 0;
+    margin-right: 70%;
+  }
 </style>
 
 
-  <header style="">
-    <div class="row">
-        <div class="col-md-4">
+<header style="">
+  <div class="row">
+    <div class="col-md-3">
       <a href="http://api.openweathermap.org/data/2.5/weather?q=Nairobi&mode=html&appid=a094e606c374990d843e2746ea3f8ecb" target="_blank"><img src="http://img2.3png.com/b83657a7f5621b20c574c55ad4dc70734a30.png" alt="" height="200px" width="200px" ></a>
-      <a href="http://api.openweathermap.org/data/2.5/weather?q=Nairobi&mode=html&appid=a094e606c374990d843e2746ea3f8ecb" target="_blank"><p>click to view weather</p></a>
-      </div>
-      <div class="col-md-1">
-      </div>
+      <a href="http://api.openweathermap.org/data/2.5/weather?q=Nairobi&mode=html&appid=a094e606c374990d843e2746ea3f8ecb" target="_blank">
+        <p>click to view weather</p>
+      </a>
     </div>
-  </header>
-<div id="map"></div>
-<br>
-{%include 'footer.html'%}
+    <div class="col-md-2">
+      <h2>For real time Weather<br> Traffic Updates</h2>
+    </div>
+    <div class="col-md-7">
 
-{%endblock%}
+      <hr>
+      <h4>Sunshine is delicious, rain is refreshing, wind braces us up, snow is exhilarating; there is really no such thing as bad weather, only different kinds of good weather ...</h4>
+      <hr>
+      <h4>If our goal is to be tolerant of people who are different than we are, then we really are aiming quite low. Traffic jams are to be tolerated. People are to be celebrated.</h4>
+    </div>
+</header>
+<div id="map"></div>
+<br> {%include 'footer.html'%} {%endblock%}

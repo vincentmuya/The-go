@@ -1,136 +1,31 @@
-{%load bootstrap3%}
-{%load static%}
+{% load bootstrap3 %} {%load staticfiles%}
 <!DOCTYPE html>
 <html>
   <head>
+  
+    {% bootstrap_css%}
     <meta charset="utf-8">
 
     {% if title %}
     <title>{{title}}</title>
     {% else %}
-      <title>The Go</title>
+      <title>   </title>
     {% endif %}
 
-    {% block styles %} {% bootstrap_css %}
-<link rel="stylesheet" href="">
-<style media="screen">
-#map {
-  height: 80%;
-  width: 100%;
-}
-body,html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: black;
-}
-</style>
-{% endblock %}
-<!--scripts  -->
-{% block scripts %}
-<!-- jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- pooper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/popper.min.js"></script>
-{% bootstrap_javascript %}
 
-<script>
-var map;
-    var lat = "{{latitude}}";
-    latz = parseFloat(lat)
-    // console.log(latz)
-    var lng = "{{longitude}}";
-    longz = parseFloat(lng);
-    // console.log(longitude)
-    if (!latz) {
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {
-            lat: -34.397,
-            lng: 150.644
-          },
-          zoom: 17
-        });
-        var trafficLayer = new google.maps.TrafficLayer();
-        trafficLayer.setMap(map);
-        // Add Marker Function
-        function addMarker(props) {
-          var marker = new google.maps.Marker({
-            position: props.coords,
-            map: map,
-            //icon:props.iconImage
-          });
-        }
-        // Listen for click on map.
-        google.maps.event.addListener(map, 'click', function(event) {
-          // Add marker
-          addMarker({
-            coords: event.latLng
-          });
-        });
-        infoWindow = new google.maps.InfoWindow;
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-    } else if (latz) {
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {
-            lat: latz,
-            lng: longz
-          },
-          zoom: 14
-        });
-        var latLng = {
-          lat: latz,
-          lng: longz
-        }
-        console.log(latLng);
-        var marker = new google.maps.Marker({
-          position: latLng,
-          map: map,
-          title: "Location found"
-        });
-        var infowindow = new google.maps.InfoWindow({
-          content: "Location found!"
-        });
-        infowindow.open(map, marker);
-      }
-    }
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-      infoWindow.open(map);
-    }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3WzIkoo5M_z3mKKEKjqlwUB_UVsT8V7U&libraries=places&callback=initMap"></script>
-
-{% comment %}
-<script src="{% static 'js/main.js' %}" type="text/javascript" charset="utf-8"></script> {% endcomment %} {% endblock %}
   </head>
-  {%include 'navbar.html'%}
   <body>
+
     {%block content %}
     {%endblock%}
 
 
+    {% block scripts %}
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       {% bootstrap_javascript %}
+      {% endblock %}
   </body>
 </html>
+<style media="screen">
+
+</style>

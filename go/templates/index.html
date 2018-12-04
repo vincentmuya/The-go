@@ -4,7 +4,7 @@
   <head>
     <link rel="stylesheet" href="{% static 'css/location.css' %}">
     <style media="screen">
-    #map {
+    #map,#map2 {
 height: 70%;
 width: 72%;
 float: right;
@@ -21,6 +21,7 @@ padding: 0;
   <h1>Find Little Einsteins</h1>
   </div>
   <div id="map"></div>
+  <div id="map2"></div>
 
       <b>Enter Your Location: </b>
       <input type="text" id="start" class="controls" type="text" placeholder="Enter Your Location">
@@ -55,14 +56,22 @@ function initMap() {
           zoom: 7,
           center: {lat: 1.2921, lng: 36.8219}
         });
+        var map2 = new google.maps.Map(document.getElementById('map2'), {
+          zoom: 7,
+          center: {lat: 1.2921, lng: 36.8219}
+        });
         directionsDisplay.setMap(map);
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map2);
 
         var onChangeHandler = function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
         };
         document.getElementById('start').addEventListener('change', onChangeHandler);
         document.getElementById('end').addEventListener('change', onChangeHandler);
+
       }
+
       function initAutocomplete() {
         // Create the search box and link it to the UI element.
         var input = document.getElementByTagName('input');
